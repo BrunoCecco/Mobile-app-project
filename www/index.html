@@ -11,6 +11,19 @@
     <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
 <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
 <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+<script>
+function chk_ans()
+{
+	my_elem = document.getElementById('ans');
+	my_elem.innerHTML = '800 nautical miles';
+	my_elem.style.color = 'red';
+}
+function quiz()
+{
+    var navigator = document.getElementById('navigator');
+    navigator.pushPage('quiz.html');
+}
+</script>
 </head>
 
 <body>
@@ -55,6 +68,10 @@ var password = document.getElementById("password").value
 
 <ons-template id="shackleton.html">
   <ons-page id="shackleton">
+      <ons-toolbar id="home-toolbar">
+      <div class="left">Home</div>
+      <div class="center" onClick = 'quiz()'>Quiz</div>
+      </ons-toolbar>
       <h2>Ernest Shackleton (1874 - 1922)</h2>
       <img src="images/shackletonicon.jpg" alt="Ernest Shackleton in Dulwich college">
       </div>
@@ -77,6 +94,19 @@ var password = document.getElementById("password").value
     </ons-page>
 </ons-template>
 
+<ons-template id="quiz.html">
+  <ons-page id="quiz">
+    <ons-toolbar id="home-toolbar">
+    <div class="left" onClick=
+    "var navigator = document.getElementById('navigator');
+    navigator.popPage()">
+    Back
+    </div>
+    </ons-toolbar>
+    <h4> Quiz </h4> <p>How far (according to Shackleton's wikipedia page) is it from Elephant Island to South Georgia in Nautical Miles?<span id="ans"></span></p>
+    <p> <button onClick='chk_ans()'>Check Answer</button></p> 
+  </ons-page>
+</ons-template>
 </body>
 </html>
 

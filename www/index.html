@@ -45,29 +45,7 @@ var password = document.getElementById("password").value
 </script>  
 
 <ons-navigator id="navigator">
-  <ons-page>
-    <div style="text-align: center; margin-top: 200px">
-    <p>
-    <ons-input id="username" placeholder="Username" modifier="underbar">
-    </ons-input>
-    </p>
-    <p>
-    <ons-input
-    id="password"
-    placeholder="Password"
-    type="password"
-    modifier="underbar">
-    </ons-input>
-    </p>
-    <p>
-    <ons-button onClick='login()'>Sign in</ons-button>
-    </p>
-    </div>
-  </ons-page>
-</ons-navigator>
-
-<ons-template id="shackleton.html">
-  <ons-page id="shackleton">
+    <ons-page id="shackleton">
       <ons-toolbar id="home-toolbar">
       <div class="left">Home</div>
       <div class="center" onClick = 'quiz()'>Quiz</div>
@@ -92,7 +70,10 @@ var password = document.getElementById("password").value
 
       <p> During his life he made three trips to the Antarctic. As well as climbing Mount Erebus he made many important scientific discoveries. On his fourth expedition to circumnavigate the Antartic he died of a heart attack. He was buried on the Island of South Georgia.</p>
     </ons-page>
-</ons-template>
+</ons-navigator>
+
+
+
 
 <ons-template id="quiz.html">
   <ons-page id="quiz">
@@ -103,7 +84,7 @@ var password = document.getElementById("password").value
     Back
     </div>
     </ons-toolbar>
-    <h4> Quiz </h4> <p>How far (according to Shackleton's wikipedia page) is it from Elephant Island to South Georgia in Nautical Miles?<span id="ans"></span></p>
+    <h4> Quiz </h4> <p>How far (according to Shackleton's wikipedia page) is it from Elephant Island to South Georgia in Nautical Miles?<span class ="myquote" id="ans"></span></p>
     <p> <button onClick='chk_ans()'>Check Answer</button></p> 
   </ons-page>
 </ons-template>

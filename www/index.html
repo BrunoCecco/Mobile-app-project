@@ -12,11 +12,7 @@
 <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
 <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
 <script>
-function quiz()
-{
-  var navigator = document.getElementById('navigator')
-  navigator.pushPage('quiz.html')
-}
+
 function loadPage(page)
  {
   document.getElementById('menu').close();
@@ -34,6 +30,8 @@ function loadPage(page)
     <ons-page>
       <ons-list>
         <ons-list-item onclick="loadPage('quiz.html')"> Quiz
+        </ons-list-item>
+        <ons-list-item onclick="loadPage('expeditions.html')"> My Expeditions
         </ons-list-item>
       </ons-list>
     </ons-page>

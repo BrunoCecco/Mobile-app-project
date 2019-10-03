@@ -12,82 +12,38 @@
 <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
 <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
 <script>
-function chk_ans()
-{
-	my_elem = document.getElementById('ans');
-	my_elem.innerHTML = '800 nautical miles';
-	my_elem.style.color = 'red';
-}
 function quiz()
 {
-    var navigator = document.getElementById('navigator');
-    navigator.pushPage('quiz.html');
+  var navigator = document.getElementById('navigator')
+  navigator.pushPage('quiz.html')
 }
+function loadPage(page)
+ {
+  document.getElementById('menu').close();
+  document.getElementById('navigator').bringPageTop(page, {
+    animation: 'fade' });
+ }
 </script>
+
 </head>
 
 <body>
-<script>
-function login() 
-{
-var username = document.getElementById("username").value
-var password = document.getElementById("password").value
-  if (username === "user" && password === "pass")
-  {
-    var navigator = document.getElementById('navigator');
-    navigator.resetToPage('shackleton.html');
-  }
-  else
-  {
-    ons.notification.alert ("Incorrect credentials")
-  }
-}
-</script>  
 
-<ons-navigator id="navigator">
-    <ons-page id="shackleton">
-      <ons-toolbar id="home-toolbar">
-      <div class="left">Home</div>
-      <div class="center" onClick = 'quiz()'>Quiz</div>
-      </ons-toolbar>
-      <h2>Ernest Shackleton (1874 - 1922)</h2>
-      <img src="images/shackletonicon.jpg" alt="Ernest Shackleton in Dulwich college">
-      </div>
-
-      <div id="nav">
-      <ul>
-      <li>Shackleton's Life</li>
-      <li>Dulwich College</li>
-      <li>Endurance Expedition</li>
-      <li>James Caird</li>
-      </ul>
-      </div>
-      <h3>Shackleton's Life</h3>
-      <div id="container">
-      <p> <a href="https://en.wikipedia.org/wiki/Ernest_Shackleton"> Sir Ernest Shackleton </a>was an Anglo-Irish Antarctic explorer and is famous, principally, for leading the Imperial Trans-Antartic (Endurance) Expedition of 1914-16.</p>
-
-      <p>He was one of the principal figures of the period known as the Heroic Age of Antartic Exploration. Educated at Dulwich College and having ignored his father's wishes that he become a doctor he joined the merchant navy. Of many quotes one of his most famous is, "Difficulties are just things to overcome, after all."
-
-      <p> During his life he made three trips to the Antarctic. As well as climbing Mount Erebus he made many important scientific discoveries. On his fourth expedition to circumnavigate the Antartic he died of a heart attack. He was buried on the Island of South Georgia.</p>
+<ons-splitter> <!-- The side menu -->
+  <ons-splitter-side id="menu" collapse width="220px">
+    <ons-page>
+      <ons-list>
+        <ons-list-item onclick="loadPage('quiz.html')"> Quiz
+        </ons-list-item>
+      </ons-list>
     </ons-page>
-</ons-navigator>
+  </ons-splitter-side> <!-- Everything not in the side menu -->
 
-
-
-
-<ons-template id="quiz.html">
-  <ons-page id="quiz">
-    <ons-toolbar id="home-toolbar">
-    <div class="left" onClick=
-    "var navigator = document.getElementById('navigator');
-    navigator.popPage()">
-    Back
-    </div>
-    </ons-toolbar>
-    <h4> Quiz </h4> <p>How far (according to Shackleton's wikipedia page) is it from Elephant Island to South Georgia in Nautical Miles?<span class ="myquote" id="ans"></span></p>
-    <p> <button onClick='chk_ans()'>Check Answer</button></p> 
-  </ons-page>
-</ons-template>
+  <ons-splitter-content>
+    <ons-navigator id="navigator" page="shackleton.html">
+    </ons-navigator>
+  </ons-splitter-content>
+</ons-splitter>
 </body>
 </html>
 
